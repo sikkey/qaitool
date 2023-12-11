@@ -6,6 +6,14 @@
 
 [繁體中文](readme_ch.md) |  [簡體中文](readme_ch.md) | [英文](README.md)
 
+## 工作流程：打包待訓練的AI圖片
+
+1. 在編譯的qaitool同級目錄下新建`./input/`和`./output/`兩個資料夾。
+2. 在`input/`中按圖片分類 label 建立資料夾，每個資料夾名字為對應的 `<label>/`
+3. 將所有圖片匯入到對應的`input/<label>`資料夾下
+4. 執行`./QAITool -i input -o output -m 0 -g 2`在`output/`資料夾下產生所有打包文件
+5. 將打包檔案匯入AI軟體進行學習、訓練和測試
+
 ## 功能
 
 

@@ -5,6 +5,14 @@ AI tool implement by QT C++
 
 [English](README.md) | [简体中文](readme_ch.md) | [繁體中文](readme_zh.md)
 
+## Workflow: Package AI images to be trained
+
+1. Create two new folders `./input/` and `./output/` in the same directory as the compiled qaitool.
+2. Create folders according to image classification label in `input/`, and the name of each folder is the corresponding `<label>/`
+3. Import all images into the corresponding `input/<label>` folder
+4. Run `./QAITool -i input -o output -m 0 -g 2` to generate all packaged files in the `output/` folder
+5. Import the packaged files into the AI software for learning, training and testing
+
 ## Features
 
 [x] QAITool Train Data Bundle
