@@ -1,6 +1,10 @@
 # qaitool
 AI tool implement by QT C++
 
+## Language
+
+[English](README.md) | [简体中文](readme_ch.md) | [繁體中文](readme_zh.md)
+
 ## Features
 
 [x] QAITool Train Data Bundle
