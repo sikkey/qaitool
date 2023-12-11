@@ -94,6 +94,39 @@ To load images from the directory `input`, process them in `Image_RGB8` mode, an
 ./QAITool -i input -o output -m 0 -g 0
 ```
 
+## Packaging File Formats
+
+### Label.txt format
+
+The i-th row represents the label with target value i
+
+### TEXT Format
+
+In the TEXT format, each training sample is saved as a line of text. The first number on each line is the target value, followed by the pixel values of the image. The pixel values are arranged in row-major order. Each number is separated by a space.
+
+Here's an example of the TEXT format:
+
+```
+0 255 255 255 0 0 0 ...
+1 0 0 0 255 255 255 ...
+...
+```
+
+In this example, the first line represents a training sample with a target value of 0, and the pixel values of the image are 255, 255, 255, 0, 0, 0, etc. The second line represents a training sample with a target value of 1, and the pixel values of the image are 0, 0, 0, 255, 255, 255, etc.
+
+### NDT Format
+
+The NDT format is a binary format used for saving training data. It first writes a version number, then the number of inputs and outputs. Next, it writes the lengths and contents of the prefix and suffix. Then, it writes the number of images, as well as the number of rows and columns in each image. Next, it writes the pixel values of each image in row-major order. Finally, it writes the number of target values, as well as the number of rows and columns in each target value. For each target value, it writes a vector where the element at the index equal to the target value is 0.99, and all other elements are 0.01.
+
+Here's an example of the NDT format (in bytes):
+
+```
+01 00 00 00 03 00 00 00 02 00 00 00 05 00 00 00 74 72 61 69 6E 03 00 00 00 6E 64 74 02 00 00 00 01 00 00 00 03 00 00 00 ...
+```
+
+In this example, the version number is 1, the number of inputs is 3, the number of outputs is 2, the prefix is "train", the suffix is "ndt", the number of images is 2, each image has 1 row and 3 columns, the pixel values are ..., the number of target values is ..., each target value has ... rows and ... columns, the vector values are ....
+
+
 ## License
 
 This project is licensed under the GPLv3.
